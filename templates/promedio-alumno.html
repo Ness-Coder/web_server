@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio alumno</title>
+    <style>
+       #button {
+            padding: 0;
+        }
+
+
+        #button li {
+            display: inline;
+        }
+
+        #button li a {
+            font-family: Arial;
+            font-size: 20px;
+            text-decoration: none;
+            float: left;
+            padding: 10px;
+            background-color: #2175bc;
+            color: #fff;
+        }
+
+        #button li a:hover {
+            background-color: #2586d7;
+            margin-top: -2;
+            padding-bottom: 12px;
+        }
+
+        h1 {
+            font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+            text-align: center;
+        }
+
+        #selectAlumno select {
+                width: inherit;
+                box-sizing: border-box;
+                border: 1px solid lightgrey;
+                height: 2rem;
+                padding: 0 10px;
+                font-family: system-ui;
+                border-radius: 5px;
+            }
+
+            #boton {
+            border: 1px solid #2e518b;
+            /*anchura, estilo y color borde*/
+            padding: 10px;
+            /*espacio alrededor texto*/
+            background-color: #2e518b;
+            /*color botón*/
+            color: #ffffff;
+            /*color texto*/
+            text-decoration: none;
+            /*decoración texto*/
+            text-transform: uppercase;
+            /*capitalización texto*/
+            font-family: 'Helvetica', sans-serif;
+            /*tipografía texto*/
+            border-radius: 50px;
+            /*bordes redondos*/
+        }
+    </style>
+</head>
+<body>
+    <header style="margin-bottom: 50px;">
+        <nav>
+            <ul id="button">
+                <li>
+                    <a href="/agregar">Agregar</a>
+                </li>
+                <li>
+                    <a href="/promedio-alumno" class="active">Promedio alumno</a>
+                </li>
+                <li>
+                    <a href="/promedio-general">Promedio general</a>
+                </li>
+                <li>
+                    <a href="/promedio-materia">Promedio materia</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <br><br><br>
+    <h1>Promedio Alumno</h1>
+
+    <form action="/promedio-alumno" method="POST">
+        {{if .Alumnos}}
+        <label for="selectAlumno">Selecciona Alumno</label>
+        <select name="alumno" id="selectAlumno">
+            <option value="" hidden selected>Selecciona</option>
+            {{range .Alumnos}}
+                <option value="{{.Name}}">{{.Name}}</option>
+            {{end}}
+        </select>
+        <button id="boton" type="submit">Buscar</button>
+        {{end}}
+    </form>
+
+    <div id="msg" style="margin-top: 30px; font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif; font-size: 20px; font-weight: bold; text-align: center;">{{.Msg}}</div>
+</body>
+</html>

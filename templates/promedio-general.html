@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio General</title>
+    <style>
+        #button {
+            padding: 0;
+        }
+
+
+        #button li {
+            display: inline;
+        }
+
+        #button li a {
+            font-family: Arial;
+            font-size: 20px;
+            text-decoration: none;
+            float: left;
+            padding: 10px;
+            background-color: #2175bc;
+            color: #fff;
+        }
+
+        #button li a:hover {
+            background-color: #2586d7;
+            margin-top: -2;
+            padding-bottom: 12px;
+        }
+
+        h1 {
+            font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header style="margin-bottom: 50px;">
+        <nav>
+            <ul id="button">
+                <li>
+                    <a href="/agregar">Agregar</a>
+                </li>
+                <li>
+                    <a href="/promedio-alumno">Promedio alumno</a>
+                </li>
+                <li>
+                    <a href="/promedio-general" class="active">Promedio general</a>
+                </li>
+                <li>
+                    <a href="/promedio-materia">Promedio materia</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <br><br><br>
+    <h1>Promedio General</h1>
+    {{if .Msg}}
+        <div id="msg" style="margin-top: 30px; font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif; font-size: 20px; font-weight: bold; text-align: center;">{{.Msg}}</div>
+    {{end}}
+</body>
+</html>

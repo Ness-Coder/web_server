@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Alumno</title>
+    <style>
+        #button {
+            padding: 0;
+        }
+
+
+        #button li {
+            display: inline;
+        }
+
+        #button li a {
+            font-family: Arial;
+            font-size: 20px;
+            text-decoration: none;
+            float: left;
+            align-items: center;
+            padding: 10px;
+            background-color: #2175bc;
+            color: #fff;
+        }
+
+        #button li a:hover {
+            background-color: #2586d7;
+            margin-top: -2;
+            padding-bottom: 12px;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        form {
+            width: 300px;
+            padding: 16px;
+            border-radius: 10px;
+            margin: auto;
+            background-color: #ccc;
+        }
+
+        form label {
+            width: 82px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        form input[type="text"],
+        form input[type="email"] {
+            width: 180px;
+            padding: 3px 10px;
+            border: 1px solid #f6f6f6;
+            border-radius: 3px;
+            background-color: #f6f6f6;
+            margin: 8px 0;
+            display: inline-block;
+        }
+
+        form input[type="submit"] {
+            width: 100%;
+            padding: 8px 16px;
+            margin-top: 32px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            display: block;
+            color: #fff;
+            background-color: #000;
+        }
+
+        form input[type="submit"]:hover {
+            cursor: pointer;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header style="margin-bottom: 50px;">
+        <nav>
+            <ul id="button">
+                <li>
+                    <a href="/agregar" class="active">Agregar</a>
+                </li>
+                <li>
+                    <a href="/promedio-alumno">Promedio alumno</a>
+                </li>
+                <li>
+                    <a href="/promedio-general">Promedio general</a>
+                </li>
+                <li>
+                    <a href="/promedio-materia">Promedio materia</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <br><br><br>
+    <h1>Agregar Alumno</h1>
+
+    <form action="/agregar" method="POST">
+        <label for="nombreAlumno">Nombre Alumno</label>
+        <input type="text" name="nombre" id="nombreAlumno" />
+
+        <label for="materia">Materia</label>
+        <input type="text" name="materia" id="materia" />
+
+        <label for="calificacion">Calificación</label>
+        <input type="number" min="0" max="100" name="calificacion" id="calificacion" />
+
+        <button type="submit">Agregar</button>
+    </form>
+
+    <div id="msg" style="margin-top: 30px; font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif; font-size: 20px; font-weight: bold; text-align: center;">{{.Msg}}</div>
+
+
+    <script>
+        window.onload = function () {
+            var msg = document.getElementById("msg");
+            if (msg.innerText.length > 0) {
+                setTimeout(function () {
+                    msg.innerText = ""
+                }, 3000)
+            }
+        }
+    </script>
+</body>
+
+</html>
